@@ -1,10 +1,13 @@
 package comun;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import comun.business.ServicioPersona;
+import comun.modelo.Id;
 import comun.modelo.Persona;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +22,8 @@ public class PersonaController {
 	//https://localhost:8080/damePersonaConId?id=1
 	@PostMapping("/damePersonaConId")
 	public Persona damePersonaConId(
-			@RequestBody (required = true) int id) {		
-		return servicioPersona.damePersonaConId(id);
+			@RequestBody (required = true) Id id) {		
+		Persona p = servicioPersona.damePersonaConId(id.getId());
+		return p;
 	}
 }

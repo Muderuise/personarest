@@ -13,7 +13,7 @@ public class ServicioPersona {
 	BaseDatos baseDatos;
 
 	public Persona damePersonaConId(int id) {		
-		return baseDatos.getById(id);
+		return baseDatos.findById(id).get();
 	}	
 	
 }
